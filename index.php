@@ -46,23 +46,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>BEAUTY PARLOUR MANAGEMENT SYSTEM | USER LOGIN</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/login.css">
 </head>
-<body>
-    <div class="login-container">
+<body class="bg-light d-flex align-items-center justify-content-center" style="min-height:100vh;">
+    <div class="login-container shadow p-4 bg-white rounded">
       <form class="login-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <h2>Login</h2>
-        <div class="input-group">
-          <label>Username:</label>
-          <input type="text" name="username" required>
+        <h2 class="text-center mb-4">Login</h2>
+        <div class="mb-3">
+          <label class="form-label">Username:</label>
+          <input type="text" name="username" class="form-control" required>
         </div>
-        <div class="input-group">
-          <label>Password:</label>
-          <input type="password" name="password" required>
+        <div class="mb-3">
+          <label class="form-label">Password:</label>
+          <input type="password" name="password" class="form-control" required>
         </div>
-        <?php if (isset($login_error)) echo "<div class='error'>$login_error</div>"; ?>
-        <button type="submit">Login</button>
-        <div class="forgot-password">
+        <?php if (isset($login_error)) echo "<div class='alert alert-danger text-center py-2'>$login_error</div>"; ?>
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+        <div class="forgot-password mt-3 text-center">
           <a href="register.php">Register Now</a> | <a href="admin/index.php">Admin Login</a>
         </div>
       </form>
